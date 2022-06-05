@@ -1,27 +1,57 @@
 ﻿Console.Clear();
-Console.WriteLine("Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.");
-string IsWeekend (int namber)
+Console.WriteLine("Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу которая будет построчно выводить массив, добавляя индексы каждого элемента.");
+
+int dimension1 = ReadInteger("Введите размер 1: ");
+int dimension2 = ReadInteger("Введите размер 2: ");
+int dimension3 = ReadInteger("Введите размер 3: ");
+int count2DNumbers = 89;
+
+if (dimension1 * dimension2 * dimension3 <= count2DNumbers)
 {
-    if ((namber == 6) | (namber == 7))
+    int[,,] array = CreateArray3D(dimension1, dimension2, dimension3);
+    for (int d1 = 0; d1 < array.GetLength(0); d1++)
     {
-        return namber + " -> ура выходной! ";
+        Console.WriteLine($"d1 = {d1}");
+        for (int d2 = 0; d2 < array.GetLength(1); d2++)
+        {
+            for (int d3 = 0; d3 < array.GetLength(2); d3++)
+                Console.Write($"({d1},{d2},{d3}){array[d1, d2, d3]} ");
+            Console.WriteLine(); 
+        }
+        Console.WriteLine();
     }
-    if ((namber >= 1) & ( namber <= 5))
-    {
-        return namber + " ->  на работу   ";
-    }
-    else
-    {
-        return "дня недели стаким номером не существует " ;
-    }
+    Console.ReadKey(); 
+
 }
-try
+else
 {
-        Console.Write("Введите номер недели: ");
-        int namber = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine(IsWeekend(namber));
+    Console.WriteLine("Невозможно заполнить массив двухзначными неповторяющимися числами");
 }
-catch(Exception ex)
+
+int[,,] CreateArray3D(int size1, int size2, int size3)
 {
-        Console.WriteLine(ex.Message);
+    int[,,] array = new int[size1, size2, size3];
+
+    int value = 10;
+    int[] twoDigitValues = new int[89];
+    for (int i = 0; i < twoDigitValues.Length; i++)
+        twoDigitValues[i] = value++;
+
+    int minValueIndex = 0;
+    for (int d1 = 0; d1 < array.GetLength(0); d1++)
+        for (int d2 = 0; d2 < array.GetLength(1); d2++)
+            for (int d3 = 0; d3 < array.GetLength(2); d3++)
+            {
+                int valueIndex = new Random().Next(minValueIndex, twoDigitValues.Length);
+                array[d1, d2, d3] = twoDigitValues[valueIndex];
+                twoDigitValues[valueIndex] = twoDigitValues[minValueIndex];
+                minValueIndex++;
+            }
+    return array;
+}
+
+int ReadInteger(string message)
+{
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
 }
