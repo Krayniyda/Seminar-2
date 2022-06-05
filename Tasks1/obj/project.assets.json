@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Seminar\\seminar2\\Tasks1\\Tasks1.csproj",
+      "projectUniqueName": "D:\\seminar3\\Seminar\\seminar8\\Tasks1\\Tasks1.csproj",
       "projectName": "Tasks1",
-      "projectPath": "D:\\Seminar\\seminar2\\Tasks1\\Tasks1.csproj",
+      "projectPath": "D:\\seminar3\\Seminar\\seminar8\\Tasks1\\Tasks1.csproj",
       "packagesPath": "C:\\Users\\DIM\\.nuget\\packages\\",
-      "outputPath": "D:\\Seminar\\seminar2\\Tasks1\\obj\\",
+      "outputPath": "D:\\seminar3\\Seminar\\seminar8\\Tasks1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
